@@ -2,17 +2,7 @@ const validator = require("validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/user");
-
-async function handleRegister(req, res) {
-  try {
-    if (!req.body) {
-      return res.status(400).json({ message: "Request body is required" });
-    }
-  } catch (error) {
-    console.error("Register error:", error);
-  }
-}
+const User = require("../models/User");
 
 async function handleLogin(req, res) {
   try {
