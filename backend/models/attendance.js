@@ -11,9 +11,9 @@ const attendanceSchema = new mongoose.Schema({
       student_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
       status: { type: String, enum: ["present", "absent"], default: "absent" },
       marked_at: Date,
-      marked_by: { type: String, enum: ["student_qr", "teacher_manual"] }
-    }
-  ]
+      marked_by: { type: String, enum: ["student_qr", "teacher_manual"] },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Attendance", attendanceSchema);
