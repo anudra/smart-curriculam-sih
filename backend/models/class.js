@@ -9,7 +9,7 @@ const classSchema = new mongoose.Schema({
     {
       day_of_week: { type: Number, min: 1, max: 7 },
       start_time: String,
-      end_time: String22,
+      end_time: String,
     },
   ],
   enrolled_students: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],

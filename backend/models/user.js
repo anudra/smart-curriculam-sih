@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const studentProfileSchema = new mongoose.Schema({
-  roll_no: { type: String, unique: true, sparse: true },
+  roll_no: { type: String, unique: true },
   course: String,
   branch: String,
   year: Number,
