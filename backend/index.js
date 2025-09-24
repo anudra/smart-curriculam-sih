@@ -3,6 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const userRouter = require("./routes/user");
+const classRouter = require("./routes/class");
 
 const { connectToMongoDB } = require("./connection");
 const { authenticateUser } = require("./middlewares/auth");
@@ -12,7 +13,7 @@ connectToMongoDB(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(error);
   });
 
@@ -29,10 +30,12 @@ app.use(
 
 // router registrations
 app.use("/api/users", userRouter);
+app.use("/api/classes", classRouter);
 
+// A simple GET endpoint to test the server
 app.get("/api/hello", (req, res) => {
   return res.status(200).json({ message: "Hello World" });
-})
+});
 
 // GET endpoint to check if user is logged in or not
 app.get("/api/protected", authenticateUser, (req, res) => {
