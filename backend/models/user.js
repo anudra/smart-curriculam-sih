@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const studentProfileSchema = new mongoose.Schema({
-  roll_no: { type: String, unique: true, sparse: true },
+  roll_no: { type: String, unique: true },
   course: String,
   branch: String,
   year: Number,
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true, maxlength: 150 },
     image_url: { type: String },
     role: { type: String, enum: ["student", "teacher", "admin"], default: "student" },
-
+    password: { type: String, required: true },
     student_profile: {
       type: studentProfileSchema,
       required: function () {

@@ -1,8 +1,7 @@
 const attendanceSchema = new mongoose.Schema({
   schedule_id: { type: mongoose.Schema.Types.ObjectId, ref: "Class" },
-  teacher_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  class_id: { type: mongoose.Schema.Types.ObjectId, ref: "Class" },
   session_code: String,
-  session_date: Date,
   expires_at: Date,
   is_active: { type: Boolean, default: true },
 
