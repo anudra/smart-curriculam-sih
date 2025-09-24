@@ -5,7 +5,14 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 async function handleRegister(req, res) {
-  
+  try {
+    if (!req.body) {
+      return res.status(400).json({ message: "Request body is required" });
+    }
+
+  } catch (error) {
+    console.error("Register error:", error);
+  }
 }
 
 async function handleLogin(req, res) {
