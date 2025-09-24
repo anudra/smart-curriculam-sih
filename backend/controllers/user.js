@@ -9,7 +9,6 @@ async function handleRegister(req, res) {
     if (!req.body) {
       return res.status(400).json({ message: "Request body is required" });
     }
-
   } catch (error) {
     console.error("Register error:", error);
   }
